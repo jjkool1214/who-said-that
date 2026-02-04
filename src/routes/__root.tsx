@@ -8,7 +8,7 @@ import { TanStackDevtools } from '@tanstack/react-devtools'
 
 import Header from '../components/Header'
 
-import TanStackQueryDevtools from './src/integrations/tanstack-query/devtools'
+import TanStackQueryDevtools from 'src/integrations/tanstack-query/devtools'
 
 import appCss from '../styles.css?url'
 
@@ -49,7 +49,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body className='bg-linear-to-r from-gray-800 via-blue-700 to-gray-900'>
         <Header />
         {children}
         <TanStackDevtools
