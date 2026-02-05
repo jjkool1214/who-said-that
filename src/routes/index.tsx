@@ -3,15 +3,18 @@ import { Card,
         CardTitle,
         CardAction,
         CardDescription,
-        CardFooter } from '@/components/ui/card'
+ } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { createFileRoute, Link } from '@tanstack/react-router'
-import { createClientOnlyFn } from '@tanstack/react-start'
+import { createFileRoute} from '@tanstack/react-router'
+import { createAuthClient } from 'better-auth/client'
 
 export const Route = createFileRoute('/')({ component: App })
 
-const login = () => {
-  console.log("LMFAIO")
+const authClient = createAuthClient()
+const login = async () => {
+    const data = await authClient.signIn.social({
+        provider: "discord"
+    })
 }
 
 function App() {
@@ -24,7 +27,6 @@ function App() {
         </CardDescription>
         <CardAction>
           <Button variant="default" className='hover:bg-sky-500' onClick={login}>
-            <Link to="/game">Sign Up</Link>
           </Button>
         </CardAction>
       </CardHeader>
